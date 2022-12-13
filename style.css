@@ -1,0 +1,127 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+*{
+   margin: 0;
+   padding: 0;
+   font-family: 'SF Pro Display', Helvetica , sans-serif;
+   /* box-sizing: border-box; */
+   max-width: 100vw;
+}
+:root{
+   --blue1 :#296ef4;
+   --blue2 :#0e57e5;
+
+   --grey1 :#3e3e3e;
+   --grey2 :#1a1a1a;
+
+   --light-grey : #989898;
+
+}
+body{
+   width: 100%;
+}
+header{
+   display: flex;
+   position: fixed;
+   top: 0;
+   width: 100%;
+   padding: 2rem 10rem;
+   align-items: center;
+   justify-content: space-between;
+   box-sizing: border-box;
+   font-size: 1.2em;
+   background: rgba( 255, 255, 255, 0.75 );
+   backdrop-filter: blur( 3.5px );
+   -webkit-backdrop-filter: blur( 3.5px );
+   border-radius: 10px;
+   border: 1px solid rgba( 255, 255, 255, 0.34 );
+   
+   z-index: 10;
+}
+header::after{
+   width: 100%;
+   content: '';
+   background: var(--light-grey);
+   height: 1px;
+   left: 50%;
+   transform: translateX(-50%);
+   position: absolute;
+   bottom: 0;
+}
+a,button{
+   all: unset;
+   cursor: pointer;
+   color: var(--grey2);
+}
+.appleLogo{
+   font-size: 2rem;
+   color: var(--grey1);
+}
+.navigationBtnsNav{
+   display: flex;
+   align-items: center;
+}
+.navigationBtnsNav a{
+   color: var(--light-grey);
+   transition: 0.3s;
+   padding: 0.5rem;
+   position: relative;
+}
+
+.navigationBtnsNav a::after{
+   content:'';
+   position: absolute;
+   width: 0%;
+   height: 3px;
+   background: var(--grey2);
+   left: 50%;
+   transform: translateX(-50%);
+   bottom: 0;
+   border-radius: 100vmax;
+   transition: 0.3s;
+
+}
+.navigationBtnsNav a:hover, .navigationBtnsNav a.active{
+   color: var(--grey2);
+   
+}
+.navigationBtnsNav a:hover::after, .navigationBtnsNav a.active::after{
+   width: 85%;
+}
+.navToggle{
+   display: none;
+}
+.secondaryActions a{
+   padding: 0.5rem;
+}
+#heroSection{
+   margin-top: 5rem;
+   height: 90vh;
+   position: relative;
+   display: grid;
+   place-items: center;
+}
+.airpodsHeroTypo ,.silverAirpodsHero{
+   position: absolute;
+   /* left: 50%;
+   top: 50%; */
+   max-height: 95%;
+}
+
+
+
+
+
+
+
+
+
+
+.imgContainer{
+   width: 100%;
+   height: 300vh;
+position: relative;
+}
+.imgContainer *{
+   position: sticky;
+   top: 0;
+}
