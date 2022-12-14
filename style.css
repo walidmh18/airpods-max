@@ -16,6 +16,13 @@
    --light-grey : #989898;
 
 }
+section , div{
+   overflow-y: hidden;
+   color: var(--grey2);
+}
+section{
+   padding: 2rem 10rem;
+}
 body{
    width: 100%;
 }
@@ -32,8 +39,6 @@ header{
    background: rgba( 255, 255, 255, 0.75 );
    backdrop-filter: blur( 3.5px );
    -webkit-backdrop-filter: blur( 3.5px );
-   border-radius: 10px;
-   border: 1px solid rgba( 255, 255, 255, 0.34 );
    
    z-index: 10;
 }
@@ -99,12 +104,15 @@ a,button{
    position: relative;
    display: grid;
    place-items: center;
+   margin-bottom: 10rem;
+   overflow: visible;
 }
 .airpodsHeroTypo ,.silverAirpodsHero{
    position: absolute;
    /* left: 50%;
    top: 50%; */
    max-height: 95%;
+   z-index: 9;
 }
 
 
@@ -112,16 +120,124 @@ a,button{
 
 
 
+.sum{
+   padding: 5rem 10rem;
+   text-align: center;
+   font-size: 2rem;
+   font-weight: 600;
+   z-index: 1;
+   margin-bottom: 10rem;
+}
 
 
+
+section.blackBg{
+   background: #000000;
+}
+
+section.features{
+height: 300vh;
+position: relative;
+overflow: hidden;
+
+}
 
 
 .imgContainer{
-   width: 100%;
-   height: 300vh;
+   max-width: 100vw;
 position: relative;
+overflow: hidden;
 }
 .imgContainer *{
    position: sticky;
    top: 0;
+   
 }
+.feature{
+   color: #ffffff;
+   font-size: 2rem;
+   width: 15em;
+   position: absolute;
+   z-index: 2;
+   opacity: 0;
+   transition: 0.3s ease all;
+}
+.feature.right{
+   right: 15rem;
+}
+.feature.left{
+   left: 15rem;
+}
+.feature:nth-child(1){
+   top: 30vh;
+}
+.feature:nth-child(2){
+   top: 70vh;
+}
+.feature:nth-child(3){
+   top: 120vh;
+}
+.feature:nth-child(4){
+   top: 150vh;
+}
+.feature:nth-child(5){
+   top: 220vh;
+}
+.features .soundwaves{
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 1;
+}
+.features .personUsingAirpodsImg{
+   overflow-clip-margin: content-box;
+   overflow: clip;
+   -webkit-mask-image: url(./images/person\ using\ airpods\ mask.png);
+   mask-image: url(./images/person\ using\ airpods\ mask.png);
+   bottom: 0;
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 3;
+   
+}
+.shadowDiv{
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 200%;
+   /* background: #fff; */
+   /* transform: translateX(-50%); */
+   background-image: radial-gradient(circle at bottom, #3C3E3B 0%, black 45%);
+   z-index: 0;
+   transition: 0.5s ease;
+}
+
+
+.soundwaves{
+   fill: var(--grey1);
+   stroke: var(--grey1);
+   opacity: 0.15;
+   width: 200vw;
+   overflow: hidden;
+   max-height: max-content;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
