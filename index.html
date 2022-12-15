@@ -8,7 +8,7 @@
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   
+   <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
    <script src="app.js" defer></script>
 </head>
 
@@ -57,10 +57,43 @@
 
 
 
-<!-- <section class="imgContainer">
+<section class="airpodsSpinning">
    <img src="images/airpods reveal 3d/0.jpg" alt="" class="airpodsImg">
-</section> -->
+      <div class="airpodsOpen">
+        <div class="airpodsParts">
+         <img src="images/airpods opening/lower part.png" alt="" class="airpodsImg2 airpodsLowerPart">
+         <img src="images/airpods opening/upper part.png" alt="" class="airpodsImg2 ">
+        </div>
+      </div>
+</section>
 
+
+<section id="colorsShow">
+   <div class="switches">
+      <button class="switch blueSwitch" onclick="blueToggle()"></button>
+      <button class="switch graySwitch" onclick="grayToggle()"></button>
+      <button class="switch greenSwitch" onclick="greenToggle()"></button>
+      <button class="switch pinkSwitch" onclick="pinkToggle()"></button>
+      <button class="switch silverSwitch" onclick="silverToggle()"></button>
+   </div>
+   <div class="gallery">
+      <div class="horizontalSlider">
+         <img src="images/slider/blue front.jpg" alt="" id="bluePods">
+         <img src="images/slider/gray front.jpg" alt="" id="grayPods">
+         <img src="images/slider/green front.jpg" alt="" id="greenPods">
+         <img src="images/slider/pink front.jpg" alt="" id="pinkPods">
+         <img src="images/slider/silver front.jpg" alt="" id="silverPods">
+      </div>
+      <div class="fadeShow">
+         <img src="images/slider/blue side.jpg" alt="" class="sideAirpods blue">
+         <img src="images/slider/gray side.jpg" alt="" class="sideAirpods gray">
+         <img src="images/slider/green side.jpg" alt="" class="sideAirpods green">
+         <img src="images/slider/pink side.jpg" alt="" class="sideAirpods pink">
+         <img src="images/slider/silver side.jpg" alt="" class="sideAirpods silver">
+      </div>
+   </div>
+</section>
+<!-- <a href="#whitePods" role="tab" tabindex="-1" aria-selected="false" aria-controls="whitePods">go white</a> -->
 <div>
 <!-- <img src="./images/soundwaves.svg" alt="" class="soundwaves"> -->
 </div>
