@@ -35,7 +35,7 @@
    <img src="images/hero/airpods max typo.jpg" alt="AirPods Max" class="airpodsHeroTypo">
    <img src="images/hero/siver airpods transparent bg.png" alt="AirPods Max silver" class="silverAirpodsHero">
 </section>
-<div class="sum">Introducing AirPods Max — a perfect balance of exhilarating <br>high-fidelity audio and the effortless magic of AirPods. <br>The ultimate personal listening experience is here.</div>
+<div class="sum">Introducing AirPods Max — a perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate personal listening experience is here.</div>
 
 
 <section class="blackBg features">
@@ -61,7 +61,7 @@
    <img src="images/airpods reveal 3d/0.jpg" alt="" class="airpodsImg">
       <div class="airpodsOpen">
         <div class="airpodsParts">
-         <img src="images/airpods opening/lower part.png" alt="" class="airpodsImg2 airpodsLowerPart">
+         <img src="images/xray/1.jpg" alt="" class="airpodsImg2 airpodsLowerPart">
          <img src="images/airpods opening/upper part.png" alt="" class="airpodsImg2 ">
         </div>
       </div>
@@ -69,13 +69,20 @@
 
 
 <section id="colorsShow">
-   <div class="switches">
-      <button class="switch blueSwitch" onclick="blueToggle()"></button>
-      <button class="switch graySwitch" onclick="grayToggle()"></button>
-      <button class="switch greenSwitch" onclick="greenToggle()"></button>
-      <button class="switch pinkSwitch" onclick="pinkToggle()"></button>
-      <button class="switch silverSwitch" onclick="silverToggle()"></button>
-   </div>
+   <div class="colorsShowHeader">
+      <h1 class="sectionTitle">
+         Five Colors. <br>
+         Anything But <br>
+         Monotone.
+      </h1>
+      <div class="switches">
+         <button class="switch blueSwitch" onclick="blueToggle();resetInterval(1)"></button>
+         <button class="switch graySwitch" onclick="grayToggle();resetInterval(2)"></button>
+         <button class="switch greenSwitch" onclick="greenToggle();resetInterval(3)"></button>
+         <button class="switch pinkSwitch" onclick="pinkToggle();resetInterval(4)"></button>
+         <button class="switch silverSwitch" onclick="silverToggle();resetInterval(5)"></button>
+      </div>
+   </div>   
    <div class="gallery">
       <div class="horizontalSlider">
          <img src="images/slider/blue front.jpg" alt="" id="bluePods">
@@ -91,6 +98,35 @@
          <img src="images/slider/pink side.jpg" alt="" class="sideAirpods pink">
          <img src="images/slider/silver side.jpg" alt="" class="sideAirpods silver">
       </div>
+   </div>
+
+</section>
+
+<section class="blackBg Xray">
+   <div class="xrayText">
+<h2>Audio Quality</h2>
+<h1>Sounds like <br> an epiphany. </h1>
+<div>
+   <p>
+      AirPods Max combine high-fidelity audio with industry-leading Active Noise Cancellation to deliver an unparalleled listening experience. Each part of their custom-built driver works to produce sound with ultra-low distortion across the audible range. From deep, rich bass to accurate mids and crisp, clean highs, you’ll hear every note with a new sense of clarity.
+   </p>
+</div>
+</div>
+   <div class="xrayImgsContainer">
+      <img src="images/xray/1.jpg" alt="" class="xrayImg xrayImg1">
+      <img src="images/xray/2.png" alt="" class="xrayImg xrayImg2">
+      <img src="images/xray/3.jpg" alt="" class="xrayImg xrayImg3">
+
+   </div>
+   <div class="xraySideText">
+      <p class="part1">
+         Immersive listening
+To cancel unwanted external sound, AirPods Max use a total of six outward-facing microphones to detect noise in your environment, and two inward-facing microphones to measure what you’re hearing. Beamforming microphones help isolate your voice on phone calls, so it’s heard clearly — even in windy situations.
+</p>
+      <p class="part2">Hear every detail
+         The Apple-designed dynamic driver produces a wide frequency range that uncovers the rich details of every sound — delivering your favorite songs with previously unheard texture and accuracy.</p>
+         <p class="part3">Distortionless playback
+            Modeled after those in high-end floor-standing speakers, the driver’s dual-neodymium ring magnet motor minimizes total harmonic distortion across the entire audible range. The result is consistently clear playback, even at full volume.</p>
    </div>
 </section>
 <!-- <a href="#whitePods" role="tab" tabindex="-1" aria-selected="false" aria-controls="whitePods">go white</a> -->

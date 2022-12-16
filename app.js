@@ -54,7 +54,6 @@ addEventListener('scroll',() => {
    }
         }
         if (scrollY + window.innerHeight /2 > personUsingAirpods.offsetTop  + featuresTop) {
-         console.log('g');
          shadowDiv.style.height = `180%`
       }else{
          shadowDiv.style.height = `80%`
@@ -95,13 +94,72 @@ addEventListener('scroll',() => {
          airpodsLowerPart.style.top = distValue + 'px'
          airpodsParts.style.scale = 1 + distValue/500
    }
+
+
+   const xraySection = document.querySelector('.Xray')
+   const xrayImages = [...document.querySelectorAll('.xrayImg')]
+   const xrayImagesContainer = document.querySelector('.xrayImgsContainer')
+   const xrayText = document.querySelector('.xrayText')
+   let xrayStart = xraySection.offsetTop +  xrayText.offsetHeight + xrayImages[0].offsetHeight/2
+   let xrayBottom = xraySection.offsetTop + xraySection.offsetHeight - screenHeight
+   let xrayRange = xrayBottom - xrayStart
+
+
+   // console.log(xrayStart, xrayBottom , xrayRange);
+   if (scrollY > xrayStart && scrollY < xrayBottom) {
+      let airpodsMoveValue = 100 + ( scrollY - xrayBottom) *100 / xrayRange
+      console.log(airpodsMoveValue);
+      xrayImagesContainer.style.top = (-xrayImagesContainer.offsetHeight/4 - airpodsMoveValue ) + 'px'
+      if (scrollY < xrayStart + xrayRange/3) {
+         xrayImages[2].style.opacity = 1
+         document.querySelector('.part1').classList.add('active')
+         document.querySelector('.part2').classList.remove('active')
+         document.querySelector('.part1').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+         
+      }else if (scrollY >= xrayStart + xrayRange/3 && scrollY < xrayStart + xrayRange*2/3) {
+         xrayImages[2].style.opacity = 0
+         xrayImages[1].style.opacity = 0
+         document.querySelector('.part1').classList.remove('active')
+         document.querySelector('.part2').classList.add('active')
+         document.querySelector('.part3').classList.remove('active')
+         document.querySelector('.part2').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+
+
+      }else if(scrollY >= xrayStart + xrayRange*2/3 && scrollY < xrayStart + xrayRange){
+         xrayImages[1].style.opacity = 1
+         xrayImages[2].style.opacity = 0
+         document.querySelector('.part2').classList.remove('active')
+         document.querySelector('.part3').classList.add('active')
+         document.querySelector('.part3').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+
+
+      } else {
+         xrayImages[2].style.opacity = 1
+         document.querySelector('.part3').classList.remove('active')
+         
+      }
+   }else{
+      document.querySelector('.part1').classList.remove('active')
+      document.querySelector('.part3').classList.remove('active')
+   }
+
 })
 
 const sideAirpods = [...document.querySelectorAll('.sideAirpods')]
+const switchesArr = [...document.querySelectorAll('.switch')]
+
 
 let loopIndex = 1
-loopAirpodsSlider()
+carouselLoop()
+ let carouselInterval =  setInterval(carouselLoop,3000)
+      
+function resetInterval(n) {
+   clearInterval(carouselInterval)
+   carouselInterval = setInterval(carouselLoop,3000)
+   loopIndex = n
+}
 
+blueToggle()
 
 
 function blueToggle() {
@@ -119,11 +177,13 @@ function blueToggle() {
          el.style.opacity = 0
       }
    });
+   switchesArr.forEach(el => {
+      el.classList.remove('active')
+   });
+   document.querySelector('.blueSwitch').classList.add('active')
    scrollTo({
       top: verScroll
    })
-   loopIndex = 2
-   loopAirpodsSlider()
 }
 
 
@@ -142,11 +202,13 @@ function grayToggle() {
          el.style.opacity = 0
       }
    });
+   switchesArr.forEach(el => {
+      el.classList.remove('active')
+   });
+   document.querySelector('.graySwitch').classList.add('active')
    scrollTo({
       top: verScroll
    })
-   loopIndex = 3
-loopAirpodsSlider()
 }
 
 
@@ -165,11 +227,15 @@ function greenToggle() {
          el.style.opacity = 0
       }
    });
+
+
+   switchesArr.forEach(el => {
+      el.classList.remove('active')
+   });
+   document.querySelector('.greenSwitch').classList.add('active')
    scrollTo({
       top: verScroll
    })
-   loopIndex = 4
-loopAirpodsSlider()
 }
 
 
@@ -188,11 +254,15 @@ function pinkToggle() {
          el.style.opacity = 0
       }
    });
+
+
+   switchesArr.forEach(el => {
+      el.classList.remove('active')
+   });
+   document.querySelector('.pinkSwitch').classList.add('active')
    scrollTo({
       top: verScroll
    })
-   loopIndex = 5
-loopAirpodsSlider()
 }
 
 
@@ -211,25 +281,31 @@ function silverToggle() {
          el.style.opacity = 0
       }
    });
+
+   switchesArr.forEach(el => {
+      el.classList.remove('active')
+   });
+   document.querySelector('.silverSwitch').classList.add('active')
    scrollTo({
       top: verScroll
    })
-   loopIndex = 1
-loopAirpodsSlider()
 }
-function loopAirpodsSlider() {
-   setInterval(()=>{
+
+
+   function carouselLoop() {
+      if (loopIndex > 5) {
+         loopIndex = 1
+      }
       if (loopIndex == 1) {
          blueToggle()
-      } else if(loopIndex == 2) {
+} else if(loopIndex == 2) {
          grayToggle()
-      } else if (loopIndex == 3) {
+} else if (loopIndex == 3) {
          greenToggle()
-      } else if (loopIndex == 4) {
+} else if (loopIndex == 4) {
          pinkToggle()
-      } else if (loopIndex == 5) {
+} else if (loopIndex == 5) {
          silverToggle()
-      }
-   },3000)
-      
+}
+         loopIndex++      
    }
