@@ -28,11 +28,18 @@ airpodsParts.style.height = `${window.innerHeight + navbar.offsetHeight}px`
 addEventListener('scroll',() => {
    const heroSectionHeight = heroSection.offsetHeight
    const heroSectionTop = heroSection.offsetTop
-   if (scrollY  >= heroSectionTop && scrollY <= (heroSectionHeight + heroSectionTop)) {
-      let zoomDiff = Math.floor((((scrollY + heroSectionTop)*0.3 )/ heroSectionHeight)*100)/100 -0.1
-      heroAirpods.style.scale = (1 +zoomDiff)
-      heroAirpods.style.top = (-20 *zoomDiff)+'px'
-      heroAirpodsTypo.style.scale = 1- zoomDiff
+   if (scrollY == 0) {
+      heroAirpods.style.scale = 1
+      heroAirpods.style.top = 0
+      heroAirpodsTypo.style.scale =1
+   }else if (scrollY  >= heroSectionTop && scrollY <= (heroSectionHeight + heroSectionTop)) {
+
+      
+         let zoomDiff = Math.floor((((scrollY + heroSectionTop)*0.3 )/ heroSectionHeight)*100)/100 -0.05
+         heroAirpods.style.scale = (1 +zoomDiff)
+         heroAirpods.style.top = (-20 *zoomDiff)+'px'
+         heroAirpodsTypo.style.scale = 1- zoomDiff
+      
    }
 
 
@@ -72,16 +79,13 @@ addEventListener('scroll',() => {
    var pageHeight = Math.max( body.scrollHeight, body.offsetHeight);
 
    let sectionTop = imgContainer.offsetTop
-   // console.log(scrollTop, sectionHeight , screenHeight, pageHeight, sectionTop);
 
 
    if (scrollY >= sectionTop && scrollY <= sectionHeight*2/3 + sectionTop - screenHeight) {
       let frameIndex = Math.floor((scrollY- sectionTop)*45 / (sectionHeight*2/3- screenHeight))
-      // console.log(frameIndex);
 
       img.src= `images/airpods reveal 3d/${frameIndex}.jpg`
 
-      console.log(frameIndex);
       
       airpodsParts.style.visibility = 'hidden'
       img.style.visibility = 'visible'
@@ -90,7 +94,6 @@ addEventListener('scroll',() => {
       img.style.visibility = 'hidden'
          airpodsParts.style.visibility = 'visible'
          let distValue = Math.floor(1000*(scrollY-sectionHeight*2/3 -sectionTop + screenHeight) / (sectionHeight-screenHeight+sectionTop)/1.45)
-         console.log(distValue);
          airpodsLowerPart.style.top = distValue + 'px'
          airpodsParts.style.scale = 1 + distValue/500
    }
@@ -105,10 +108,8 @@ addEventListener('scroll',() => {
    let xrayRange = xrayBottom - xrayStart
 
 
-   // console.log(xrayStart, xrayBottom , xrayRange);
    if (scrollY > xrayStart && scrollY < xrayBottom) {
       let airpodsMoveValue = 100 + ( scrollY - xrayBottom) *100 / xrayRange
-      console.log(airpodsMoveValue);
       xrayImagesContainer.style.top = (-xrayImagesContainer.offsetHeight/4 - airpodsMoveValue ) + 'px'
       if (scrollY < xrayStart + xrayRange/3) {
          xrayImages[2].style.opacity = 1
@@ -309,3 +310,12 @@ function silverToggle() {
 }
          loopIndex++      
    }
+
+   const scrollDownAnimContainer = document.querySelector('.scrollDownAnim')
+   let scrollDownAnimation = lottie.loadAnimation({
+       container: scrollDownAnimContainer,
+       path: 'scrollDown.json',
+       renderer: 'svg',
+       autoplay: true,
+       loop: true
+   })

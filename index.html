@@ -9,7 +9,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
-   <script src="app.js" defer></script>
+    <script src="app.js" defer></script>
 </head>
 
 <body>
@@ -30,12 +30,17 @@
    </nav>
    <button class="navToggle"></button>
 </header>
-
-<section id="heroSection">
+<!-- <img src="images/scrollDown.json" alt=""> -->
+<section id="heroSection" >
    <img src="images/hero/airpods max typo.jpg" alt="AirPods Max" class="airpodsHeroTypo">
    <img src="images/hero/siver airpods transparent bg.png" alt="AirPods Max silver" class="silverAirpodsHero">
+
+   <div class="scrollDownAnim" data-file="scrollDown">
+
+
+   </div>
 </section>
-<div class="sum">Introducing AirPods Max — a perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate personal listening experience is here.</div>
+<div class="sum"><p>Introducing AirPods Max — a perfect balance of exhilarating high-fidelity audio and the effortless magic of AirPods. The ultimate personal listening experience is here.</p></div>
 
 
 <section class="blackBg features">
@@ -56,12 +61,20 @@
 </section>
 
 
+<section class="airpodsSpinningHeader">
+   <h1>
+      A radically <br> original <br> composition.
+   </h1>
+   <p>
+      The over-ear headphone has been completely reimagined. From cushion to canopy, AirPods Max are designed for an uncompromising fit that creates the optimal acoustic seal for many different head shapes — fully immersing you in every sound.
 
+   </p>
+</section>
 <section class="airpodsSpinning">
    <img src="images/airpods reveal 3d/0.jpg" alt="" class="airpodsImg">
       <div class="airpodsOpen">
         <div class="airpodsParts">
-         <img src="images/xray/1.jpg" alt="" class="airpodsImg2 airpodsLowerPart">
+         <img src="images/airpods opening/lower part.png" alt="" class="airpodsImg2 airpodsLowerPart">
          <img src="images/airpods opening/upper part.png" alt="" class="airpodsImg2 ">
         </div>
       </div>
@@ -129,12 +142,40 @@ To cancel unwanted external sound, AirPods Max use a total of six outward-facing
             Modeled after those in high-end floor-standing speakers, the driver’s dual-neodymium ring magnet motor minimizes total harmonic distortion across the entire audible range. The result is consistently clear playback, even at full volume.</p>
    </div>
 </section>
-<!-- <a href="#whitePods" role="tab" tabindex="-1" aria-selected="false" aria-controls="whitePods">go white</a> -->
-<div>
-<!-- <img src="./images/soundwaves.svg" alt="" class="soundwaves"> -->
-</div>
-<script>
 
-</script>
+<section class="moreFeatures">
+   <h1>More magic to play with.</h1>
+      <div class="moreFeaturesContainer">
+         <ul>
+            <li>
+               <h3>On-head detection</h3>
+               <p>AirPods Max pause audio when you take them off, and resume playback when you put them back on. So you never miss a beat.</p>
+            </li>
+            <li>
+               <h3>Announce Notifications</h3>
+               <p>With Announce Notifications, Siri can automatically read important notifications from Messages, Phone, Calendar, Reminders, and more as they arrive.4 You can even tell Siri to respond — no hands required.</p>
+            </li>
+            <li>
+               <h3>Always-on Siri</h3>
+               <p>Get directions, check the weather, schedule a meeting, and more with a simple “Hey Siri.” With an expansive set of commands, your favorite personal assistant is more helpful than ever.4</p>
+            </li>
+         </ul>
+      </div>
+</section>
+<section class="buyAirpods">
+   <img src="images/slider/green_front_half.png" alt="">
+
+   <div class="buyAirpodsMaxActions">
+      <h1>Say it in a way only You can!</h1>
+      <p>Discover new engraving options for AirPods.
+         Mix emoji, text, and numbers.</p>
+         <a href="apple.com">Buy AirPods Max </a>
+   </div>
+</section>
+
+<script src="lottie.js" type="text/javascript"></script>
+
+
+
 </body>
 </html>
