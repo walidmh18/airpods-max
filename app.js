@@ -26,19 +26,22 @@ airpodsParts.style.top = `${navbar.offsetHeight}px `
 airpodsParts.style.height = `${window.innerHeight + navbar.offsetHeight}px`
 
 addEventListener('scroll',() => {
+   
+
+
+
+
+
+
    const heroSectionHeight = heroSection.offsetHeight
    const heroSectionTop = heroSection.offsetTop
-   if (scrollY == 0) {
-      heroAirpods.style.scale = 1
-      heroAirpods.style.top = 0
-      heroAirpodsTypo.style.scale =1
-   }else if (scrollY  >= heroSectionTop && scrollY <= (heroSectionHeight + heroSectionTop)) {
+   if (scrollY  >= heroSectionTop && scrollY <= (heroSectionHeight + heroSectionTop)) {
 
       
-         let zoomDiff = Math.floor((((scrollY + heroSectionTop)*0.3 )/ heroSectionHeight)*100)/100 -0.05
-         heroAirpods.style.scale = (1 +zoomDiff)
-         heroAirpods.style.top = (-20 *zoomDiff)+'px'
-         heroAirpodsTypo.style.scale = 1- zoomDiff
+         let zoomDiff = Math.floor((((scrollY + heroSectionTop)*0.3 )/ heroSectionHeight)*100)/100 
+         heroAirpods.style.scale = (0.95 +zoomDiff)
+         heroAirpods.style.top = (-20 *(zoomDiff-0.05))+'px'
+         heroAirpodsTypo.style.scale = 1.05- zoomDiff
       
    }
 
@@ -95,7 +98,7 @@ addEventListener('scroll',() => {
          airpodsParts.style.visibility = 'visible'
          let distValue = Math.floor(1000*(scrollY-sectionHeight*2/3 -sectionTop + screenHeight) / (sectionHeight-screenHeight+sectionTop)/1.45)
          airpodsLowerPart.style.top = distValue + 'px'
-         airpodsParts.style.scale = 1 + distValue/500
+         airpodsParts.style.top = (navbar.offsetHeight - distValue/2) + 'px'
    }
 
 
@@ -107,9 +110,10 @@ addEventListener('scroll',() => {
    let xrayBottom = xraySection.offsetTop + xraySection.offsetHeight - screenHeight
    let xrayRange = xrayBottom - xrayStart
 
+   xrayImagesContainer.style.top = (-xrayImagesContainer.offsetHeight/4 - (( scrollY - xrayBottom) *100 / xrayRange) ) + 'px'
 
    if (scrollY > xrayStart && scrollY < xrayBottom) {
-      let airpodsMoveValue = 100 + ( scrollY - xrayBottom) *100 / xrayRange
+      let airpodsMoveValue = ( scrollY - xrayBottom) *100 / xrayRange
       xrayImagesContainer.style.top = (-xrayImagesContainer.offsetHeight/4 - airpodsMoveValue ) + 'px'
       if (scrollY < xrayStart + xrayRange/3) {
          xrayImages[2].style.opacity = 1
@@ -146,8 +150,17 @@ addEventListener('scroll',() => {
 
 })
 
+
 const sideAirpods = [...document.querySelectorAll('.sideAirpods')]
 const switchesArr = [...document.querySelectorAll('.switch')]
+
+
+
+const horizontalScrollContainer = document.querySelector('.horizontalSlider')
+const grayPods = document.querySelector('#grayPods')
+let horizontalScrollContainerWidth = horizontalScrollContainer.scrollWidth
+let horizontalScrollElementWidth = horizontalScrollContainer.clientWidth
+
 
 
 let loopIndex = 1
@@ -165,11 +178,8 @@ blueToggle()
 
 function blueToggle() {
    let verScroll = scrollY
-   document.querySelector('#bluePods').scrollIntoView({
-      // behavior:'smooth',
-      inline: 'center',
-      block: 'nearest'
-   })
+   
+   ImgShowScroll(0)
 
    sideAirpods.forEach(el => {
       if (el.classList[1] == 'blue') {
@@ -182,19 +192,14 @@ function blueToggle() {
       el.classList.remove('active')
    });
    document.querySelector('.blueSwitch').classList.add('active')
-   scrollTo({
-      top: verScroll
-   })
+   
 }
 
 
 function grayToggle() {
    let verScroll = scrollY
-   document.querySelector('#grayPods').scrollIntoView({
-      // behavior:'smooth',
-      inline: 'center',
-      block: 'nearest'
-   })
+   ImgShowScroll(1)
+   
 
    sideAirpods.forEach(el => {
       if (el.classList[1] == 'gray') {
@@ -207,20 +212,14 @@ function grayToggle() {
       el.classList.remove('active')
    });
    document.querySelector('.graySwitch').classList.add('active')
-   scrollTo({
-      top: verScroll
-   })
+   
 }
 
 
 function greenToggle() {
    let verScroll = scrollY
-   document.querySelector('#greenPods').scrollIntoView({
-      // behavior:'smooth',
-      inline: 'center',
-      block: 'nearest'
-   })
-
+   ImgShowScroll(2)
+   
    sideAirpods.forEach(el => {
       if (el.classList[1] == 'green') {
          el.style.opacity = 1
@@ -234,19 +233,14 @@ function greenToggle() {
       el.classList.remove('active')
    });
    document.querySelector('.greenSwitch').classList.add('active')
-   scrollTo({
-      top: verScroll
-   })
+   
 }
 
 
 function pinkToggle() {
    let verScroll = scrollY
-   document.querySelector('#pinkPods').scrollIntoView({
-      // behavior:'smooth',
-      inline: 'center',
-      block: 'nearest'
-   })
+   ImgShowScroll(3)
+   
 
    sideAirpods.forEach(el => {
       if (el.classList[1] == 'pink') {
@@ -261,19 +255,14 @@ function pinkToggle() {
       el.classList.remove('active')
    });
    document.querySelector('.pinkSwitch').classList.add('active')
-   scrollTo({
-      top: verScroll
-   })
+
 }
 
 
 function silverToggle() {
    let verScroll = scrollY
-   document.querySelector('#silverPods').scrollIntoView({
-      // behavior:'smooth',
-      inline: 'center',
-      block: 'nearest'
-   })
+   ImgShowScroll(4)
+   
 
    sideAirpods.forEach(el => {
       if (el.classList[1] == 'silver') {
@@ -287,9 +276,7 @@ function silverToggle() {
       el.classList.remove('active')
    });
    document.querySelector('.silverSwitch').classList.add('active')
-   scrollTo({
-      top: verScroll
-   })
+  
 }
 
 
@@ -319,3 +306,13 @@ function silverToggle() {
        autoplay: true,
        loop: true
    })
+
+
+//  console.log(horizontalScrollElementWidth);
+function ImgShowScroll(n) {
+   let scrollValue = ((1+2*n)/10 ) * horizontalScrollContainerWidth - (horizontalScrollElementWidth)/2 ;
+   horizontalScrollContainer.scrollTo({
+     left: scrollValue,
+   })
+   
+}
