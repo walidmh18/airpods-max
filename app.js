@@ -112,6 +112,8 @@ addEventListener('scroll',() => {
 
    xrayImagesContainer.style.top = (-xrayImagesContainer.offsetHeight/4 - (( scrollY - xrayBottom) *100 / xrayRange) ) + 'px'
 
+   
+
    if (scrollY > xrayStart && scrollY < xrayBottom) {
       let airpodsMoveValue = ( scrollY - xrayBottom) *100 / xrayRange
       xrayImagesContainer.style.top = (-xrayImagesContainer.offsetHeight/4 - airpodsMoveValue ) + 'px'
@@ -119,7 +121,11 @@ addEventListener('scroll',() => {
          xrayImages[2].style.opacity = 1
          document.querySelector('.part1').classList.add('active')
          document.querySelector('.part2').classList.remove('active')
-         document.querySelector('.part1').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+         if (screen.width> 768) {
+            document.querySelector('.part1').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+         } else {
+            document.querySelector('.part1').style.top = (screenHeight/1.5 - airpodsMoveValue ) + 'px'
+         }
          
       }else if (scrollY >= xrayStart + xrayRange/3 && scrollY < xrayStart + xrayRange*2/3) {
          xrayImages[2].style.opacity = 0
@@ -127,7 +133,11 @@ addEventListener('scroll',() => {
          document.querySelector('.part1').classList.remove('active')
          document.querySelector('.part2').classList.add('active')
          document.querySelector('.part3').classList.remove('active')
-         document.querySelector('.part2').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+         if (screen.width> 768) {
+            document.querySelector('.part2').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+         } else {
+            document.querySelector('.part2').style.top = (screenHeight/1.5 - airpodsMoveValue ) + 'px'
+         }
 
 
       }else if(scrollY >= xrayStart + xrayRange*2/3 && scrollY < xrayStart + xrayRange){
@@ -135,7 +145,11 @@ addEventListener('scroll',() => {
          xrayImages[2].style.opacity = 0
          document.querySelector('.part2').classList.remove('active')
          document.querySelector('.part3').classList.add('active')
-         document.querySelector('.part3').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+         if (screen.width> 768) {
+            document.querySelector('.part3').style.top = (screenHeight/2 - airpodsMoveValue ) + 'px'
+         } else {
+            document.querySelector('.part3').style.top = (screenHeight/1.5 - airpodsMoveValue ) + 'px'
+         }
 
 
       } else {
@@ -316,3 +330,14 @@ function ImgShowScroll(n) {
    })
    
 }
+
+
+const    features = [...document.querySelectorAll('.feature') ]
+
+const  personUsingAirpodsImg = document.querySelector('img.personUsingAirpodsImg');
+let featuresHeight = 0
+features.forEach(feature=> {
+   featuresHeight += feature.offsetHeight
+})
+
+    featuresContainer.style.height = (featuresHeight + personUsingAirpods.offsetHeight + 800) + 'px'

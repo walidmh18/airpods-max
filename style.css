@@ -436,12 +436,14 @@ overflow: hidden;
    top: -50%;
    height: 40%;
    object-fit: contain;
+   /* max-width: 80%; */
 }
 
 
 .Xray img{
    position: absolute;
-   left: -20%;
+   left: -40%;
+   width: 100%;
 }
 .xrayImg2{
    opacity: 0;
@@ -549,4 +551,141 @@ overflow: hidden;
    right: 10rem;
    height: 3rem;
    width: 3rem;
+}
+
+
+
+
+
+@media (max-width:1440px) {
+   .Xray p{
+      width: 60%;
+      margin-right: 2rem;
+   }
+   .Xray img{
+      left: -50%;
+   }
+   .xraySideText p {
+      width: 30%;
+      margin-right: 0;
+   }
+   .buyAirpodsMaxActions h1 {
+      font-size: 8rem;
+   }
+
+} 
+
+@media (max-width: 1024px) {
+   .scrollDownAnim{
+      bottom: 7rem;
+      right: 7rem;
+   }
+   .features .personUsingAirpodsImg {
+      width: 80%;
+      -webkit-mask-image: url(./images/person\ using\ airpods\ mask\ x2.png);
+      width: 796px;
+    height: 764px;
+   }
+   .sum p{
+      max-width: 100%;
+   }
+   .feature.left {
+      left: 10rem;
+   }
+   .feature.right{
+      right: 10rem;
+   }
+   .airpodsSpinningHeader h1 {
+      font-size: 8rem;
+   }
+   .airpodsSpinningHeader p {
+      width: 60%;
+      font-size: 2.2rem;
+   }
+   .colorsShowHeader {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+   section{
+      padding: 2rem 5rem;
+   }
+   .Xray{
+      padding: 2rem 7rem;
+   }
+   .Xray h1 {
+      font-size: 8rem;
+   }
+   .xraySideText p {
+      font-size: 1.7rem;
+   }
+   .buyAirpodsMaxActions h1 {
+      font-size: 6.5rem;
+      line-height: 7rem;
+   }
+   .buyAirpodsMaxActions {
+      width: 60%;
+   }
+   
+}
+
+@media (max-width: 768px) {
+
+   /*  */
+   .scrollDownAnim{
+      bottom: 7rem;
+      right: 5rem;
+      height: 2.5rem;
+      width: 2.5rem;
+   }
+   section{
+      padding: 2rem 3rem;
+   }
+   .sum{
+      padding: 5rem;
+   }
+   .airpodsSpinningHeader h1 , .Xray h1 {
+      font-size: 5.7rem;
+      line-height: 6rem;
+   }
+   .airpodsSpinningHeader p ,.Xray> p  {
+      width: 80%;
+   }
+   .Xray img {
+      width: 120%;
+   }
+   .xraySideText p {
+      width: 70%;
+   }
+   .moreFeatures{
+      margin: 10rem 0;
+   }
+   .moreFeatures ul {
+      grid-template-columns: repeat(2,1fr);
+   }
+   .moreFeatures ul li:last-child{
+      grid-column: span 2;
+   }
+   .buyAirpodsMaxActions h1 {
+      font-size: 4.5rem;
+      line-height: 5rem;
+   }
+   .buyAirpodsMaxActions p {
+      font-size: 2rem;
+   }
+   .buyAirpodsMaxActions a {
+      font-size: 2rem;
+   }
+   .buyAirpodsMaxActions a::after {
+      width: 0.5;
+      height: 0.5;
+   }
+
+}
+@media (max-width: 600px) {
+   .features .personUsingAirpodsImg {
+      width: 80%;
+      -webkit-mask-image: url(./images/person\ using\ airpods\ mask\ x3.png);
+      width: 398px;
+      height: 381px;
+   }
 }
